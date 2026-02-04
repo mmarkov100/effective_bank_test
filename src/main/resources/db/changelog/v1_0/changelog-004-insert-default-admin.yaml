@@ -1,0 +1,24 @@
+databaseChangeLog:
+  - changeSet:
+      id: 4
+      author: system
+      changes:
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: username
+                  value: admin
+              - column:
+                  name: password
+                  value: $2a$12$0mzM3LEmy1melP0XlQIZAOwAyn7ee8RzYBD//MqvTx0VoMLXwNIJO
+              - column:
+                  name: role
+                  value: ROLE_ADMIN
+              - column:
+                  name: created_at
+                  valueComputed: CURRENT_TIMESTAMP
+      rollback:
+        - delete:
+            tableName: users
+            where: username = 'admin'

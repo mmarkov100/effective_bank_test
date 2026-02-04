@@ -1,0 +1,4 @@
+curl -X POST http://localhost:8080/api/transfers -H "Authorization: Bearer {{USER_TOKEN}}" -H "Content-Type: application/json" -d '{"fromCardId":1,"toCardId":2,"amount":1000}'
+curl -X POST http://localhost:8080/api/transfers -H "Authorization: Bearer {{USER2_TOKEN}}" -H "Content-Type: application/json" -d '{"fromCardId":3,"toCardId":3,"amount":100}'
+curl -X GET "http://localhost:8080/api/transfers/card/1?page=0&size=10" -H "Authorization: Bearer {{USER_TOKEN}}"
+curl -X GET "http://localhost:8080/api/transfers/card/3?page=0&size=10" -H "Authorization: Bearer {{USER2_TOKEN}}"

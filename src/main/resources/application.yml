@@ -1,0 +1,45 @@
+spring:
+  application:
+    name: bank
+
+  logging:
+    level:
+      ROOT: INFO
+      com.effective.bank: DEBUG
+      com.effective.bank.util.CardSecurityUtil: DEBUG
+      org.springframework.security: INFO
+      org.springframework.web: INFO
+    pattern:
+      console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5433/bank_cards}
+    username: ${SPRING_DATASOURCE_USERNAME:postgres}
+    password: ${SPRING_DATASOURCE_PASSWORD:postgres}
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    open-in-view: false
+
+  liquibase:
+    enabled: true
+    change-log: classpath:db/changelog/db.changelog-master.yaml
+
+jwt:
+  secret: ${JWT_SECRET:3PtqnhxMFMZfLQBMfGO5cINaAintZ4/n1PMXGniAZHI=}
+  expiration: 36000000
+
+card:
+  encryption:
+#    secret: ${CARD_ENCRYPTION_SECRET:MyVerySecretKey32BytesLongForAES256!!}
+    secret: ${CARD_ENCRYPTION_SECRET:914a15b2dcceb6bc085171afe65c7f4bf88027c7fd3a2db4947faf148537f559}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always

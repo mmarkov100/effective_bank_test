@@ -1,0 +1,48 @@
+#version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: bank-postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: bank_cards
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - bank-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: bank-app
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/bank_cards
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+      JWT_SECRET: 3PtqnhxMFMZfLQBMfGO5cINaAintZ4/n1PMXGniAZHI=
+      CARD_ENCRYPTION_SECRET: 914a15b2dcceb6bc085171afe65c7f4bf88027c7fd3a2db4947faf148537f559
+    ports:
+      - "8080:8080"
+    networks:
+      - bank-network
+    restart: unless-stopped
+
+volumes:
+  pgdata:
+
+networks:
+  bank-network:
+    driver: bridge

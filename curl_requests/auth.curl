@@ -1,0 +1,5 @@
+curl -X POST http://localhost:8080/auth/register -H "Content-Type: application/json" -d '{"username":"user1","password":"password123"}'
+curl -X POST http://localhost:8080/auth/register -H "Content-Type: application/json" -d '{"username":"user2","password":"password123"}'
+curl -X POST http://localhost:8080/auth/login -H "Content-Type: application/json" -d '{"username":"admin","password":"admin123"}'
+curl -X POST http://localhost:8080/auth/login -H "Content-Type: application/json" -d '{"username":"user1","password":"password123"}'
+curl -X POST http://localhost:8080/auth/login -H "Content-Type: application/json" -d '{"username":"user2","password":"password123"}'

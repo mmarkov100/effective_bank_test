@@ -1,0 +1,5 @@
+curl -X GET http://localhost:8080/api/cards/1 -H "Authorization: Bearer {{ADMIN_TOKEN}}"
+curl -X GET http://localhost:8080/api/cards/1 -H "Authorization: Bearer {{USER_TOKEN}}"
+curl -X GET http://localhost:8080/api/cards/3 -H "Authorization: Bearer {{USER_TOKEN}}"
+curl -X GET http://localhost:8080/api/cards/3 -H "Authorization: Bearer {{USER2_TOKEN}}"
+curl -X GET http://localhost:8080/api/cards/999 -H "Authorization: Bearer {{ADMIN_TOKEN}}"

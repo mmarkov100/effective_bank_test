@@ -1,0 +1,5 @@
+curl -X POST http://localhost:8080/api/cards -H "Authorization: Bearer {{USER_TOKEN}}" -H "Content-Type: application/json" -d '{"cardNumber":"1111","ownerId":1,"expirationDate":"2029-12-31","status":"ACTIVE","balance":100}'
+curl -X GET http://localhost:8080/api/cards/3 -H "Authorization: Bearer {{USER_TOKEN}}"
+curl -X DELETE http://localhost:8080/api/cards/1 -H "Authorization: Bearer {{USER_TOKEN}}"
+curl -X GET http://localhost:8080/api/cards -H "Authorization: Bearer wrongtoken"
+curl -X POST http://localhost:8080/api/transfers -H "Authorization: Bearer {{USER_TOKEN}}" -H "Content-Type: application/json" -d '{"fromCardId":1,"toCardId":3,"amount":500}'

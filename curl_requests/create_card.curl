@@ -1,0 +1,4 @@
+curl -X POST http://localhost:8080/api/cards -H "Authorization: Bearer {{ADMIN_TOKEN}}" -H "Content-Type: application/json" -d '{"cardNumber":"1234567812345678","ownerId":2,"expirationDate":"2029-12-31","status":"ACTIVE","balance":10000}'
+curl -X POST http://localhost:8080/api/cards -H "Authorization: Bearer {{ADMIN_TOKEN}}" -H "Content-Type: application/json" -d '{"cardNumber":"8765432187654321","ownerId":2,"expirationDate":"2029-12-31","status":"ACTIVE","balance":5000}'
+curl -X POST http://localhost:8080/api/cards -H "Authorization: Bearer {{ADMIN_TOKEN}}" -H "Content-Type: application/json" -d '{"cardNumber":"1111222233334444","ownerId":3,"expirationDate":"2029-12-31","status":"ACTIVE","balance":7500}'
+curl -X POST http://localhost:8080/api/cards -H "Authorization: Bearer {{ADMIN_TOKEN}}" -H "Content-Type: application/json" -d '{"cardNumber":"9999999999990000","ownerId":2,"expirationDate":"2029-12-31","status":"ACTIVE","balance":0}'

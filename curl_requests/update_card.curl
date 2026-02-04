@@ -1,0 +1,4 @@
+curl -X PUT http://localhost:8080/api/cards/1 -H "Authorization: Bearer {{ADMIN_TOKEN}}" -H "Content-Type: application/json" -d '{"status":"BLOCKED"}'
+curl -X PUT http://localhost:8080/api/cards/2 -H "Authorization: Bearer {{USER_TOKEN}}" -H "Content-Type: application/json" -d '{"status":"BLOCKED"}'
+curl -X PUT http://localhost:8080/api/cards/1 -H "Authorization: Bearer {{ADMIN_TOKEN}}" -H "Content-Type: application/json" -d '{"balance":15000}'
+curl -X DELETE http://localhost:8080/api/cards/4 -H "Authorization: Bearer {{ADMIN_TOKEN}}"
