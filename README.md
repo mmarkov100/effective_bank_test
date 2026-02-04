@@ -9,7 +9,8 @@
 ```bash
 git clone <your-repo>
 cd bank
-start.bat
+./start.bat # Powershell
+start.bat # для linux и mac
 ```
 
 Готово! Открой:
