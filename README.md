@@ -7,7 +7,7 @@
 ##  **Быстрый старт (30 секунд)**
 
 ```bash
-git clone <your-repo>
+git clone https://github.com/mmarkov100/effective_bank_test
 cd bank
 ./start.bat # Powershell
 start.bat # для linux и mac
